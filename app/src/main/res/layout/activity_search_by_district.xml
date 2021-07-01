@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchByDistrict">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="Schedule Appoinment By District"
+            android:textSize="25dp"
+            android:layout_marginBottom="30dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/SBDschedulesearchbypin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Search By Pin"
+            android:textAllCaps="false"
+            android:layout_margin="25dp"
+            android:backgroundTint="#0000"
+            android:textColor="@color/black"
+            />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/SearchbyState"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="35dp"
+                app:startIconDrawable="@drawable/home"
+                android:layout_marginRight="35dp"
+                android:hint="State">
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/searchbystate1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/SearchbyDistrict"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginBottom="30dp"
+                app:startIconDrawable="@drawable/add_location"
+                android:layout_marginRight="35dp"
+                android:hint="District">
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/SearchbyDistrict1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Search_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#009688"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:text="Search"/>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>
+
+

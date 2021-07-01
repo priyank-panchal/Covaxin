@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Covaxin</string>
+    <string name="register">Register/Login</string>
+    <string name="regi_for">Register of Login for Vaccination</string>
+</resources>

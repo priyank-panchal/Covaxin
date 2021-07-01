@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchByPin">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="Schedule Appoinment By Pin"
+            android:textSize="25dp"
+            android:layout_marginBottom="30dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow
+                android:id="@+id/schedulefirst"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/schedulesearchbydistrict"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#009688"
+                    android:textAllCaps="false"
+                    android:text="Search By District" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/Shedulethirdrow"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:startIconDrawable="@drawable/home"
+                    android:id="@+id/editTextPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search By Pin"
+                    android:layout_weight="1"
+                    >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    />
+                </com.google.android.material.textfield.TextInputLayout>
+            </TableRow>
+            <TableRow
+                android:id="@+id/Scheduleforthrow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/Search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#009688"
+                    android:textAllCaps="false"
+                    android:text="Search" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/Restart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#0000"
+                    android:textColor="@color/black"
+                    android:textAllCaps="false"
+                    android:text="Restart" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>
