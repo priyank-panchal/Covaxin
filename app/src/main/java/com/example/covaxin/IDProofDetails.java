@@ -1,7 +1,6 @@
 package com.example.covaxin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,25 +12,75 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class IDProofDetails extends AppCompatActivity  {
     Button btn;
+    AutoCompleteTextView IDName;
+    AutoCompleteTextView gender_name;
+    private TextInputEditText id_name;;
+    private TextInputEditText id_number;
+    private TextInputEditText id_year;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idproof_details);
-        Log.d("idproof ","jay maa meldi ");
-        btn=(Button) findViewById(R.id.ID_Add);
+        btn = (Button) findViewById(R.id.ID_Add);
+        IDName = (AutoCompleteTextView) findViewById(R.id.customerTextView);
+        gender_name = (AutoCompleteTextView) findViewById(R.id.ID_Gender1);
+        id_name = (TextInputEditText) findViewById(R.id.ID_name1);
+        id_number = (TextInputEditText) findViewById(R.id.IDNumber1);
+        id_year = (TextInputEditText) findViewById(R.id.ID_Year1);
         intiUI();
         GenderUI();
         btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(IDProofDetails.this,ShowDetailsUser.class);
-                startActivity(in);
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    if (ValidationonFiled()) {
+                        Intent in = new Intent(IDProofDetails.this, ShowDetailsUser.class);
+                        startActivity(in);
+                    }
+                }
+            });
+    }
+    private Boolean ValidationonFiled() {
+        Boolean isValid =true;
+        if (IDName.length() == 0) {
+            IDName.setError("This Field is Required");
+            isValid=false;
+        }
+        if (gender_name.length() == 0) {
+            gender_name.setError("this Field is Required");
+            isValid = false;
+        }
+        String idproofname = id_name.getText().toString();
+        Log.d("Meldi" , idproofname);
+        if(idproofname.isEmpty()){
+            id_name.setError("this field is Required");
+            isValid =false;
+        }
+        String idproofnumber=id_number.getText().toString();
+        Log.d("Meldi" , idproofnumber);
+
+        System.err.println(idproofnumber);
+        if(idproofname.isEmpty()){
+            id_number.setError("this filed is required");
+            isValid = false;
+        }
+        String idproofyear = id_year.getText().toString().trim();
+        System.err.println(idproofname);
+        if(idproofname.isEmpty()){
+            id_year.setError("this filed is required");
+            isValid = false;
+        }
+        return isValid;
     }
     private void intiUI(){
 
