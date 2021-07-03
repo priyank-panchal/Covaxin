@@ -27,7 +27,6 @@ public class IDProofDetails extends AppCompatActivity  {
     private TextInputEditText id_name;;
     private TextInputEditText id_number;
     private TextInputEditText id_year;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +43,20 @@ public class IDProofDetails extends AppCompatActivity  {
                 @Override
                 public void onClick(View v) {
                     if (ValidationonFiled()) {
-                        Intent in = new Intent(IDProofDetails.this, ShowDetailsUser.class);
-                        startActivity(in);
+                        try {
+                            IDProofDetailsdb allFileds = new IDProofDetailsdb(-1,
+                                    IDName.getText().toString(),
+                                    id_name.getText().toString(),
+                                    id_number.getText().toString(),
+                                    Integer.parseInt(id_number.getText().toString()),
+                                    gender_name.getText().toString());
+                            Toast.makeText(IDProofDetails.this, allFileds.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e){
+                            Toast.makeText(IDProofDetails.this,"something missing ",Toast.LENGTH_SHORT).show();
+                        }
+//                        Intent in = new Intent(IDProofDetails.this, ShowDetailsUser.class);
+//                        startActivity(in);
                     }
                 }
             });
