@@ -44,13 +44,20 @@ public class IDProofDetails extends AppCompatActivity  {
                 public void onClick(View v) {
                     if (ValidationonFiled()) {
                         try {
-                            IDProofDetailsdb allFileds = new IDProofDetailsdb(-1,
+                            IDProofDetailsdb allFileds = new IDProofDetailsdb(
                                     IDName.getText().toString(),
                                     id_name.getText().toString(),
                                     id_number.getText().toString(),
                                     Integer.parseInt(id_number.getText().toString()),
                                     gender_name.getText().toString());
-                            Toast.makeText(IDProofDetails.this, allFileds.toString(), Toast.LENGTH_SHORT).show();
+                            IDproofDatabaseOperation IDproofDatabaseOperation = new IDproofDatabaseOperation(IDProofDetails.this);
+                            boolean success= IDproofDatabaseOperation.addOne(allFileds.getID_name(),
+                                    allFileds.getID_num(), allFileds.getID_type(),
+                                    allFileds.getYear(), allFileds.getGender());
+                            if(success == true)
+                               Toast.makeText(IDProofDetails.this, "succesfully inserted", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(IDProofDetails.this, "make some problem", Toast.LENGTH_SHORT).show();
                         }
                         catch (Exception e){
                             Toast.makeText(IDProofDetails.this,"something missing ",Toast.LENGTH_SHORT).show();
@@ -78,8 +85,6 @@ public class IDProofDetails extends AppCompatActivity  {
             isValid =false;
         }
         String idproofnumber=id_number.getText().toString();
-        Log.d("Meldi" , idproofnumber);
-
         System.err.println(idproofnumber);
         if(idproofname.isEmpty()){
             id_number.setError("this filed is required");
@@ -94,7 +99,6 @@ public class IDProofDetails extends AppCompatActivity  {
         return isValid;
     }
     private void intiUI(){
-
         final AutoCompleteTextView customView = findViewById(R.id.customerTextView);
         ArrayList<String> customerList = getIDList();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(IDProofDetails.this, android.R.layout.simple_spinner_item,customerList);
@@ -120,7 +124,6 @@ public class IDProofDetails extends AppCompatActivity  {
                 Toast.makeText(IDProofDetails.this, genderview.getText(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
     private ArrayList<String> getIDList(){
 
