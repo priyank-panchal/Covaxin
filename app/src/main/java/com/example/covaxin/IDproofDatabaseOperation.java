@@ -34,24 +34,20 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
                 ");";
         db.execSQL(createtableStatement);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists person_details");
-
     }
-
-    public boolean addOne(String ID_name,String ID_num,String type,int year, String gender){
-
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues contentValues= new ContentValues();
-        contentValues.put(P_NAME,ID_name);
-        contentValues.put(ID_NUMBER,ID_num);
-        contentValues.put(ID_TYPE,type);
-        contentValues.put(YEAR,year);
-        contentValues.put(GENDER,gender);
-        long result= db.insert(PERSON_DETAILS,null,contentValues);
-        if(result == -1){
+    public boolean addOne(String ID_name,String ID_num,String type,int year, String gender) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(P_NAME, ID_name);
+        contentValues.put(ID_NUMBER, ID_num);
+        contentValues.put(ID_TYPE, type);
+        contentValues.put(YEAR, year);
+        contentValues.put(GENDER, gender);
+        long result = db.insert(PERSON_DETAILS, null, contentValues);
+        if (result == -1) {
             return false;
         }
         return true;
