@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
-
 public class IDproofDatabaseOperation extends SQLiteOpenHelper {
     public static final String PERSON_DETAILS = "person_details";
     public static final String P_ID = "p_id";
@@ -22,17 +21,16 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
     String appoinmenttable = "CREATE TABLE " + APPOINMENT_PERSON + "(" +
             A_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," +
             MOBILE + " TEXT NOT NULL," +
-            TOKEN_NO + "TEXT  NOT NULL" +
+            TOKEN_NO + " TEXT NOT NULL" +
             ");";
     String createtableStatement = "CREATE TABLE " + PERSON_DETAILS + "(" +
             P_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," +
             P_NAME + " TEXT NOT NULL," +
-            ID_NUMBER + "TEXT  NOT NULL," +
+            ID_NUMBER + " TEXT  NOT NULL," +
             ID_TYPE + " TEXT NOT NULL," +
             YEAR + " TEXT NOT NULL," +
             GENDER + " TEXT NOT NULL" +
             ");";
-
     public IDproofDatabaseOperation(@Nullable Context context) {
         super(context, "vaccine.db", null, 1);
     }
@@ -53,11 +51,11 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
         contentValues.put(MOBILE,appoinment.getMobile());
         contentValues.put(TOKEN_NO,appoinment.getToken_no());
         long result = db.insert(APPOINMENT_PERSON,null,contentValues);
+        db.close();
         if(result == -1){
             return false;
         }
         return true;
-
 
     }
     public boolean addOne(String ID_name,String ID_num,String type,int year, String gender) {
@@ -69,6 +67,7 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
         contentValues.put(YEAR, year);
         contentValues.put(GENDER, gender);
         long result = db.insert(PERSON_DETAILS, null, contentValues);
+        db.close();
         if (result == -1) {
             return false;
         }

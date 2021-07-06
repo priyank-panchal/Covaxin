@@ -54,16 +54,18 @@ public class IDProofDetails extends AppCompatActivity  {
                             boolean success= IDproofDatabaseOperation.addOne(allFileds.getID_name(),
                                     allFileds.getID_num(), allFileds.getID_type(),
                                     allFileds.getYear(), allFileds.getGender());
-                            if(success == true)
-                               Toast.makeText(IDProofDetails.this, "succesfully inserted", Toast.LENGTH_SHORT).show();
+                            if(success == true) {
+                                Toast.makeText(IDProofDetails.this, "succesfully inserted", Toast.LENGTH_SHORT).show();
+                               Intent in = new Intent(IDProofDetails.this, ShowDetailsUser.class);
+                               startActivity(in);
+                               finish();
+                            }
                             else
                                 Toast.makeText(IDProofDetails.this, "make some problem", Toast.LENGTH_SHORT).show();
                         }
                         catch (Exception e){
                             Toast.makeText(IDProofDetails.this,"something missing ",Toast.LENGTH_SHORT).show();
                         }
-//                        Intent in = new Intent(IDProofDetails.this, ShowDetailsUser.class);
-//                        startActivity(in);
                     }
                 }
             });
