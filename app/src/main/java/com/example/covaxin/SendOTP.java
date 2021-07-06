@@ -47,6 +47,7 @@ public class SendOTP extends AppCompatActivity {
                                         Textid = response.getString("txnId");
                                         Intent in = new Intent(SendOTP.this, Confirmotp.class);
                                         in.putExtra("txid",Textid);
+                                        in.putExtra("mobile",tinput.getText().toString());
                                         startActivity(in);
                                         finish();
                                     } catch (JSONException e) {

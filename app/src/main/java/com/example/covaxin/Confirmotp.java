@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.MessageDigest;
@@ -36,16 +37,24 @@ public class Confirmotp extends AppCompatActivity {
                     String confirmOTPurl = "https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP";
                     HashMap<String, String> params = new HashMap<>();
                     String getValFromOTP = getIntent().getExtras().getString("txid");
+                    String mobileno = getIntent().getExtras().getString("mobile");
                     params.put("otp", sha256(tinput.getText().toString()));
                     params.put("txnId", getValFromOTP);
                     JsonObjectRequest confirmrequest = new JsonObjectRequest(Request.Method.POST, confirmOTPurl, new JSONObject(params)
                             , new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-
+                            String token_no = null;
+                            try {
+                                token_no = response.get("token").toString();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            IDproofDatabaseOperation confirmInsert=new IDproofDatabaseOperation(Confirmotp.this);
+                            appoinmentclass appoinment = new appoinmentclass(mobileno,token_no);
+                            confirmInsert.addUsers(appoinment);
                             Intent in = new Intent(Confirmotp.this, IDProofDetails.class);
                             startActivity(in);
-
                             finish();
                             Toast.makeText(Confirmotp.this, response.toString(), Toast.LENGTH_SHORT).show();
                         }
@@ -56,7 +65,6 @@ public class Confirmotp extends AppCompatActivity {
                         }
                     });
                     singletone.getInstance(Confirmotp.this).addToRequestQueue(confirmrequest);
-
                 }
             }
             private boolean validation() {

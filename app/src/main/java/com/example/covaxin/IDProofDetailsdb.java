@@ -1,7 +1,6 @@
 package com.example.covaxin;
 
 public class IDProofDetailsdb {
-
     private String ID_name;
     private String ID_num;
     private String ID_type;
