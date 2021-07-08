@@ -108,7 +108,8 @@ public class IDProofDetails extends AppCompatActivity  {
         findViewById(R.id.customerSpinnerLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(IDProofDetails.this, customView.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(IDProofDetails.this, customView.getText().toString(), Toast.LENGTH_SHORT).show();
+                Log.d("Meldi",customView.getText().toString());
             }
         });
     }

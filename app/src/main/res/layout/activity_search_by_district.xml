@@ -34,44 +34,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-            <com.google.android.material.textfield.TextInputLayout
+            <Spinner
                 android:id="@+id/SearchbyState"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="35dp"
-                app:startIconDrawable="@drawable/home"
-                android:layout_marginRight="35dp"
-                android:hint="State">
-                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                    android:id="@+id/searchbystate1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
+                android:layout_height="50dp"
+                android:layout_width="160dp"
+                android:layout_margin="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <Spinner
                 android:id="@+id/SearchbyDistrict"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginBottom="30dp"
-                app:startIconDrawable="@drawable/add_location"
-                android:layout_marginRight="35dp"
-                android:hint="District">
-                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                    android:id="@+id/SearchbyDistrict1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
-
+                android:layout_height="50dp"
+                android:layout_width="160dp"
+                android:layout_margin="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/Search_button"
                 android:layout_width="match_parent"
@@ -82,6 +58,8 @@
                 android:layout_marginRight="35dp"
                 android:text="Search"/>
         </TableLayout>
+
+
     </LinearLayout>
 </ScrollView>
 
