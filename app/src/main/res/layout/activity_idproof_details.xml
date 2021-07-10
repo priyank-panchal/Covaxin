@@ -127,7 +127,7 @@
                 android:text="Submit" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/ID_logout"
+            android:id="@+id/download_cer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -135,7 +135,7 @@
             android:textColor="@color/black"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
-            android:text="Logout" />
+            android:text="Download certificate" />
         </LinearLayout>
 
 </ScrollView>

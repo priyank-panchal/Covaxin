@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Confirmotp"
-    android:layout_margin="20dp">
+    tools:context=".DownloadCertifacte">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="30dp">
     <TextView
-        android:id="@+id/ConfirmMaintextView6"
+        android:id="@+id/Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register"
+        android:text="Download Certifacte"
         android:textAlignment="center"
         android:textStyle="bold"
         android:textSize="40dp"
@@ -21,20 +24,19 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirm OTP*"
+        android:hint="Reference ID"
         android:layout_marginBottom="30dp"
-        app:startIconDrawable="@drawable/message_icon"
+        app:startIconDrawable="@drawable/add_person"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/confirm_textbox"
+            android:id="@+id/ref_number"
             android:inputType="phone"
             />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/Cofirm_otp_btn"
+        android:id="@+id/ref_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -42,9 +44,5 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Submit" />
-
-    />
-</LinearLayout>
-
-
-
+    </LinearLayout>
+</ScrollView>

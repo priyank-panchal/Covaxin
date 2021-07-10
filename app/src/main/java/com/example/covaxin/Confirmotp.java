@@ -24,11 +24,13 @@ import java.util.HashMap;
 public class Confirmotp extends AppCompatActivity {
     Button btn;
     TextInputEditText tinput;
+    Button cerficate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmotp);
         btn = (Button) findViewById(R.id.Cofirm_otp_btn);
+        cerficate = (Button) findViewById(R.id.download_cer);
         tinput = (TextInputEditText) findViewById(R.id.confirm_textbox);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,7 @@ public class Confirmotp extends AppCompatActivity {
                             appoinmentclass appoinment = new appoinmentclass(mobileno,token_no);
                             confirmInsert.addUsers(appoinment);
                             Intent in = new Intent(Confirmotp.this, IDProofDetails.class);
+                           in.putExtra("Token_no",token_no);
                             startActivity(in);
                             finish();
                             Toast.makeText(Confirmotp.this, response.toString(), Toast.LENGTH_SHORT).show();
@@ -75,6 +78,7 @@ public class Confirmotp extends AppCompatActivity {
                 return true;
             }
         });
+
     }
     private static String sha256(final String base) {
         try{

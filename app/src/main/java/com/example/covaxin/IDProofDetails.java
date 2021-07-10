@@ -27,11 +27,13 @@ public class IDProofDetails extends AppCompatActivity  {
     private TextInputEditText id_name;;
     private TextInputEditText id_number;
     private TextInputEditText id_year;
+    private Button btn2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idproof_details);
         btn = (Button) findViewById(R.id.ID_Add);
+        btn2 = (Button) findViewById(R.id.download_cer);
         IDName = (AutoCompleteTextView) findViewById(R.id.customerTextView);
         gender_name = (AutoCompleteTextView) findViewById(R.id.ID_Gender1);
         id_name = (TextInputEditText) findViewById(R.id.ID_name1);
@@ -69,6 +71,19 @@ public class IDProofDetails extends AppCompatActivity  {
                     }
                 }
             });
+
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String OnesAgain = getIntent().getStringExtra("Token_no");
+                Intent in = new Intent(IDProofDetails.this,Download_ct.class);
+                in.putExtra("Token_no",OnesAgain);
+                startActivity(in);
+                finish();
+            }
+        });
+
     }
     private Boolean ValidationonFiled() {
         Boolean isValid =true;
