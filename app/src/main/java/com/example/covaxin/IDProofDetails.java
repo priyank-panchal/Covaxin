@@ -81,7 +81,6 @@ public class IDProofDetails extends AppCompatActivity  {
             isValid = false;
         }
         String idproofname = id_name.getText().toString();
-        Log.d("Meldi" , idproofname);
         if(idproofname.isEmpty()){
             id_name.setError("this field is Required");
             isValid =false;

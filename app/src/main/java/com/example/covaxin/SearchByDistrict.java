@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -44,13 +43,6 @@ public class SearchByDistrict extends AppCompatActivity implements AdapterView.O
         btn = (Button) findViewById(R.id.SBDschedulesearchbypin);
         spn = (Spinner) findViewById(R.id.SearchbyState);
         spn1= (Spinner) findViewById(R.id.SearchbyDistrict);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(SearchByDistrict.this,SearchByPin.class);
-                startActivity(in);
-            }
-        });
 
         String stateNameApi = "https://cdn-api.co-vin.in/api/v2/admin/location/states";
         JsonObjectRequest state = new JsonObjectRequest(Request.Method.GET, stateNameApi, null
@@ -86,6 +78,21 @@ public class SearchByDistrict extends AppCompatActivity implements AdapterView.O
         });
         singletone.getInstance(SearchByDistrict.this).addToRequestQueue(state);
         spn.setOnItemSelectedListener(this);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+
+
+
+
+            }
+        });
+
     }
 
     @Override
@@ -93,7 +100,6 @@ public class SearchByDistrict extends AppCompatActivity implements AdapterView.O
         if(parent.getId() == R.id.SearchbyState){
             String selectedState = parent.getSelectedItem().toString();
             Integer districteId = pairData.get(selectedState);
-            Log.d("vahnvati",districteId.toString());
             String Districterequest = "https://cdn-api.co-vin.in/api/v2/admin/location/districts/" + districteId.toString();
             JsonObjectRequest district_req = new JsonObjectRequest(Request.Method.GET, Districterequest, null
                     , new Response.Listener<JSONObject>() {
@@ -131,4 +137,6 @@ public class SearchByDistrict extends AppCompatActivity implements AdapterView.O
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
 }

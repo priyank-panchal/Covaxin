@@ -10,18 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Covaxin">
         <activity android:name=".SearchByDistrict">
-
         </activity>
-        <activity android:name=".SearchByPin" />
-        <activity android:name=".ShowDetailsUser" />
-        <activity android:name=".IDProofDetails">
-        </activity>
-        <activity android:name=".Confirmotp" />
-        <activity android:name=".SendOTP" >
+        <activity android:name=".SearchByPin" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ShowDetailsUser" />
+        <activity android:name=".IDProofDetails">
+
+        </activity>
+        <activity android:name=".Confirmotp" />
+        <activity android:name=".SendOTP" >
         </activity>
         <activity android:name=".MainActivity" />
     </application>

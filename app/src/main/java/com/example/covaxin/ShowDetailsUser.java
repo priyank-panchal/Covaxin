@@ -27,6 +27,7 @@ public class ShowDetailsUser extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in = new Intent(ShowDetailsUser.this,IDProofDetails.class);
                 startActivity(in);
+                finish();
             }
         });
     }

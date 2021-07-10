@@ -29,6 +29,7 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
             ID_NUMBER + " TEXT  NOT NULL," +
             ID_TYPE + " TEXT NOT NULL," +
             YEAR + " TEXT NOT NULL," +
+            A_ID + " TEXT NOT NULL," +
             GENDER + " TEXT NOT NULL" +
             ");";
     public IDproofDatabaseOperation(@Nullable Context context) {
