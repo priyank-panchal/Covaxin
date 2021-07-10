@@ -11,7 +11,6 @@ public class IDProofDetailsdb {
     }
 
     public IDProofDetailsdb( String ID_name, String ID_num, String ID_type, int year, String gender) {
-
         this.ID_name = ID_name;
         this.ID_num = ID_num;
         this.ID_type = ID_type;

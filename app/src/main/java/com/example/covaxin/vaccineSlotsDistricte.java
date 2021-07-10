@@ -1,6 +1,6 @@
 package com.example.covaxin;
-import java.util.Arrays;
-public class VaccineSlots {
+public class vaccineSlotsDistricte {
+
     private String name;
     private String address;
     private String state_name;
@@ -17,6 +17,27 @@ public class VaccineSlots {
     private int min_age_limit;
     private String Vaccine;
 
+     public vaccineSlotsDistricte(String name, String address, String state_name, String district_name, String block_name, int pincode, String from, String to, String fee_type, String date, int available_capacity, int available_capacity_dose1, int available_capacity_dose2, int min_age_limit, String vaccine) {
+        this.name = name;
+        this.address = address;
+        this.state_name = state_name;
+        this.district_name = district_name;
+        this.block_name = block_name;
+        this.pincode = pincode;
+        this.from = from;
+        this.to = to;
+        this.fee_type = fee_type;
+        this.date = date;
+        this.available_capacity = available_capacity;
+        this.available_capacity_dose1 = available_capacity_dose1;
+        this.available_capacity_dose2 = available_capacity_dose2;
+        this.min_age_limit = min_age_limit;
+        Vaccine = vaccine;
+    }
+
+    public vaccineSlotsDistricte() {
+    }
+
     public String getName() {
         return name;
     }
@@ -31,6 +52,14 @@ public class VaccineSlots {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getState_name() {
+        return state_name;
+    }
+
+    public void setState_name(String state_name) {
+        this.state_name = state_name;
     }
 
     public String getDistrict_name() {
@@ -121,40 +150,32 @@ public class VaccineSlots {
         this.min_age_limit = min_age_limit;
     }
 
-    public VaccineSlots() {
+    public String getVaccine() {
+        return Vaccine;
     }
 
-    public VaccineSlots(String name, String address, String district_name, String block_name, int pincode, String from, String to, String fee_type, String date, int available_capacity, int available_capacity_dose1, int available_capacity_dose2, int min_age_limit) {
-        this.name = name;
-        this.address = address;
-        this.district_name = district_name;
-        this.block_name = block_name;
-        this.pincode = pincode;
-        this.from = from;
-        this.to = to;
-        this.fee_type = fee_type;
-        this.date = date;
-        this.available_capacity = available_capacity;
-        this.available_capacity_dose1 = available_capacity_dose1;
-        this.available_capacity_dose2 = available_capacity_dose2;
-        this.min_age_limit = min_age_limit;
+    public void setVaccine(String vaccine) {
+        Vaccine = vaccine;
     }
 
     @Override
     public String toString() {
-        return "name=" + name + '\n' +
-                        "address=" + address + '\n' +
-                        "district_name=" + district_name + '\n' +
-                        "block_name=" + block_name + '\n' +
-                        "pincode=" + pincode + '\n' +
-                        "from=" + from + '\n' +
-                        "to=" + to + '\n' +
-                        "fee_type=" + fee_type + '\n' +
-                        "date=" + date + '\n' +
-                        "available_capacity=" + available_capacity + '\n' +
-                        "available_capacity_dose1=" + available_capacity_dose1 + '\n' +
-                        "available_capacity_dose2=" + available_capacity_dose2 + '\n' +
-                        "min_age_limit=" + min_age_limit + '\n' ;
+        return "name:" + name + '\n' +
+                " address:" + address + '\n' +
+                " state_name:" + state_name + '\n' +
+                " district_name:" + district_name + '\n' +
+                " block_name:" + block_name + '\n' +
+                " pincode:" + pincode +'\n' +
+                " from:" + from + '\n' +
+                " to:" + to + '\n' +
+                " fee_type:" + fee_type + '\n' +
+                " date:" + date + '\n' +
+                " available_capacity:" + available_capacity + '\n' +
+                " available_capacity_dose1:" + available_capacity_dose1 + '\n' +
+                " available_capacity_dose2:" + available_capacity_dose2 + '\n' +
+                " min_age_limit:" + min_age_limit + '\n' +
+                " Vaccine:" + Vaccine + '\n' ;
+
     }
 }
 
