@@ -1,28 +1,36 @@
 package com.example.covaxin;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
 public class ShowDetailsUser extends AppCompatActivity {
     Button btn,btn1;
+    TextView tv;
+    ListView lstview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_details_user);
-        btn = (Button) findViewById(R.id.scheduleApp);
         btn1= (Button) findViewById(R.id.ADD_More);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(ShowDetailsUser.this,SearchByPin.class);
-                startActivity(in);
-            }
-        });
-        btn1.setOnClickListener(new View.OnClickListener() {
+        lstview = (ListView) findViewById(R.id.ltviw);
+        IDproofDatabaseOperation idofdata = new IDproofDatabaseOperation(ShowDetailsUser.this);
+         List<IDProofDetailsdb> Alldata= idofdata.getAllData();
+         ArrayAdapter adapter = new ArrayAdapter<IDProofDetailsdb>(ShowDetailsUser.this, android.R.layout.simple_list_item_1,Alldata);
+         lstview.setAdapter(adapter);
+            btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(ShowDetailsUser.this,IDProofDetails.class);

@@ -2,10 +2,17 @@ package com.example.covaxin;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class IDproofDatabaseOperation extends SQLiteOpenHelper {
     public static final String PERSON_DETAILS = "person_details";
     public static final String P_ID = "p_id";
@@ -29,7 +36,6 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
             ID_NUMBER + " TEXT  NOT NULL," +
             ID_TYPE + " TEXT NOT NULL," +
             YEAR + " TEXT NOT NULL," +
-            A_ID + " TEXT NOT NULL," +
             GENDER + " TEXT NOT NULL" +
             ");";
     public IDproofDatabaseOperation(@Nullable Context context) {
@@ -57,7 +63,6 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
             return false;
         }
         return true;
-
     }
     public boolean addOne(String ID_name,String ID_num,String type,int year, String gender) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -73,6 +78,30 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
             return false;
         }
         return true;
+    }
+    public List<IDProofDetailsdb> getAllData(){
+        List<IDProofDetailsdb> lst = new ArrayList<>();
+        ArrayAdapter arrayAdapter;
+        String query = "SELECT * FROM " +  PERSON_DETAILS;
+        SQLiteDatabase db =this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do{
+                String p_name = cursor.getString(1);
+                String p_number = cursor.getString(2);
+                String p_idtype = cursor.getString(3);
+                int p_years = cursor.getInt(4);
+                String p_gender = cursor.getString(5);
+                IDProofDetailsdb idproof = new IDProofDetailsdb(p_name,p_number,p_idtype,p_years,p_gender);
+                lst.add(idproof);
+            }while(cursor.moveToNext());
+        }
+        else {
+            Log.d("jay meldi ma ", "something goes wrong");
+        }
+        cursor.close();
+        db.close();
+        return lst;
     }
 
 }

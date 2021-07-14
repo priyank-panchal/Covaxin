@@ -59,12 +59,10 @@ public class IDProofDetailsdb {
     }
     @Override
     public String toString() {
-        return "IDProofDetailsdb{" +
-                ", ID_name='" + ID_name + '\'' +
-                ", ID_num='" + ID_num + '\'' +
-                ", ID_type='" + ID_type + '\'' +
-                ", year=" + year +
-                ", gender='" + gender + '\'' +
-                '}';
+        return  "ID Type \t\t" + ID_name + '\n' +
+                "ID Name \t\t" + ID_num + '\n' +
+                "ID Number\t\t" + ID_type + '\n' +
+                "year \t\t" + year + '\n' +
+                "gender\t\t" + gender + '\n';
     }
 }

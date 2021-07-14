@@ -181,7 +181,6 @@ public class SearchByDistrict extends AppCompatActivity implements AdapterView.O
         else if(parent.getId() == R.id.SearchbyDistrict){
             String selectedDistrict = parent.getSelectedItem().toString();
             IdofDistricte = pairDataDistrict.get(selectedDistrict);
-            Log.d("Meldi",IdofDistricte.toString());
         }
     }
 

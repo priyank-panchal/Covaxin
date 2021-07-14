@@ -50,7 +50,7 @@ public class IDProofDetails extends AppCompatActivity  {
                                     IDName.getText().toString(),
                                     id_name.getText().toString(),
                                     id_number.getText().toString(),
-                                    Integer.parseInt(id_number.getText().toString()),
+                                    Integer.parseInt(id_year.getText().toString()),
                                     gender_name.getText().toString());
                             IDproofDatabaseOperation IDproofDatabaseOperation = new IDproofDatabaseOperation(IDProofDetails.this);
                             boolean success= IDproofDatabaseOperation.addOne(allFileds.getID_name(),
@@ -71,16 +71,13 @@ public class IDProofDetails extends AppCompatActivity  {
                     }
                 }
             });
-
-
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String OnesAgain = getIntent().getStringExtra("Token_no");
-                Intent in = new Intent(IDProofDetails.this,Download_ct.class);
+                Intent in = new Intent(IDProofDetails.this,DownloadCertifacte.class);
                 in.putExtra("Token_no",OnesAgain);
                 startActivity(in);
-                finish();
             }
         });
 
@@ -123,7 +120,6 @@ public class IDProofDetails extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Toast.makeText(IDProofDetails.this, customView.getText().toString(), Toast.LENGTH_SHORT).show();
-                Log.d("Meldi",customView.getText().toString());
             }
         });
     }
