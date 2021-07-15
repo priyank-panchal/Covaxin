@@ -79,6 +79,15 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
         }
         return true;
     }
+    public boolean deleteOne(IDProofDetailsdb idProofDetailsdb){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM "+PERSON_DETAILS + " WHERE " + P_ID +" = " + idProofDetailsdb.getID();
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            return true;
+        }
+        return false;
+    }
     public List<IDProofDetailsdb> getAllData(){
         List<IDProofDetailsdb> lst = new ArrayList<>();
         ArrayAdapter arrayAdapter;
@@ -87,12 +96,13 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query,null);
         if(cursor.moveToFirst()){
             do{
+                int id = cursor.getInt(0);
                 String p_name = cursor.getString(1);
                 String p_number = cursor.getString(2);
                 String p_idtype = cursor.getString(3);
                 int p_years = cursor.getInt(4);
                 String p_gender = cursor.getString(5);
-                IDProofDetailsdb idproof = new IDProofDetailsdb(p_name,p_number,p_idtype,p_years,p_gender);
+                IDProofDetailsdb idproof = new IDProofDetailsdb(id,p_name,p_number,p_idtype,p_years,p_gender);
                 lst.add(idproof);
             }while(cursor.moveToNext());
         }
@@ -103,5 +113,4 @@ public class IDproofDatabaseOperation extends SQLiteOpenHelper {
         db.close();
         return lst;
     }
-
 }

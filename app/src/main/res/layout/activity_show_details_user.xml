@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
         android:orientation="vertical"
         >
         <TextView
@@ -17,14 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Register of Login for Vaccination"
-            android:layout_margin="50dp"
+            android:layout_margin="10dp"
             android:textAlignment="center"
             android:textSize="20dp"/>
-
         <ListView
             android:id="@+id/ltviw"
             android:layout_width="match_parent"
-            android:layout_height="422dp" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ADD_More"

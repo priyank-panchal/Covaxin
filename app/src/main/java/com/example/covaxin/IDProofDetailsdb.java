@@ -1,6 +1,7 @@
 package com.example.covaxin;
 
 public class IDProofDetailsdb {
+    private int ID;
     private String ID_name;
     private String ID_num;
     private String ID_type;
@@ -9,8 +10,15 @@ public class IDProofDetailsdb {
 
     public IDProofDetailsdb() {
     }
-
-    public IDProofDetailsdb( String ID_name, String ID_num, String ID_type, int year, String gender) {
+    public IDProofDetailsdb(String ID_name, String ID_num, String ID_type, int year, String gender) {
+        this.ID_name = ID_name;
+        this.ID_num = ID_num;
+        this.ID_type = ID_type;
+        this.year = year;
+        this.gender = gender;
+    }
+    public IDProofDetailsdb(int ID,String ID_name, String ID_num, String ID_type, int year, String gender) {
+        this.ID=ID;
         this.ID_name = ID_name;
         this.ID_num = ID_num;
         this.ID_type = ID_type;
@@ -45,24 +53,29 @@ public class IDProofDetailsdb {
     public int getYear() {
         return year;
     }
-
     public  void setYear(int year) {
         this.year = year;
     }
-
     public   String getGender() {
         return gender;
     }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
+    public int getID() {
+        return ID;
+    }
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     @Override
     public String toString() {
-        return  "ID Type \t\t" + ID_name + '\n' +
-                "ID Name \t\t" + ID_num + '\n' +
-                "ID Number\t\t" + ID_type + '\n' +
-                "year \t\t" + year + '\n' +
-                "gender\t\t" + gender + '\n';
+        return "ID=" + ID +
+                "ID_name='" + ID_name + '\'' +
+                " ID_num='" + ID_num + '\'' +
+                " ID_type='" + ID_type + '\'' +
+                " year=" + year +
+                " gender='" + gender + '\'';
     }
 }

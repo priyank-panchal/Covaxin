@@ -15,22 +15,23 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
 import java.util.List;
 public class ShowDetailsUser extends AppCompatActivity {
     Button btn,btn1;
     TextView tv;
     ListView lstview;
+    MixActivity mixActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_details_user);
         btn1= (Button) findViewById(R.id.ADD_More);
         lstview = (ListView) findViewById(R.id.ltviw);
-        IDproofDatabaseOperation idofdata = new IDproofDatabaseOperation(ShowDetailsUser.this);
-         List<IDProofDetailsdb> Alldata= idofdata.getAllData();
-         ArrayAdapter adapter = new ArrayAdapter<IDProofDetailsdb>(ShowDetailsUser.this, android.R.layout.simple_list_item_1,Alldata);
-         lstview.setAdapter(adapter);
-            btn1.setOnClickListener(new View.OnClickListener() {
+        List<IDProofDetailsdb>  lstId = new ArrayList<IDProofDetailsdb>();
+        mixActivity = new MixActivity(ShowDetailsUser.this,lstId);
+        lstview.setAdapter(mixActivity);
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(ShowDetailsUser.this,IDProofDetails.class);
