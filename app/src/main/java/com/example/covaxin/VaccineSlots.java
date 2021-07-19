@@ -16,6 +16,24 @@ public class VaccineSlots {
     private int available_capacity_dose2;
     private int min_age_limit;
     private String Vaccine;
+    private String Dose_1_status;
+    private String Dose_2_status;
+
+    public String getDose_1_status() {
+        return Dose_1_status;
+    }
+
+    public void setDose_1_status(String dose_1_status) {
+        Dose_1_status = dose_1_status;
+    }
+
+    public String getDose_2_status() {
+        return Dose_2_status;
+    }
+
+    public void setDose_2_status(String dose_2_status) {
+        Dose_2_status = dose_2_status;
+    }
 
     public String getName() {
         return name;

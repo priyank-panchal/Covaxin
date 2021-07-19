@@ -3,6 +3,7 @@ package com.example.covaxin;
 import android.app.Activity;
 import android.content.Context;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +41,13 @@ public class MixActivity extends BaseAdapter {
         View person;
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         person = inflater.inflate(R.layout.tableshow,parent,false);
-        TextView name = person.findViewById(R.id.Nameofuser1);
+        TextView name = person.findViewById(R.id.PhotoIdNumber2);
         TextView gender = person.findViewById(R.id.GenderName2);
-        TextView idnumber = person.findViewById(R.id.PhotoIdNumber2);
+        TextView idnumber = person.findViewById(R.id.Nameofuser1);
         TextView PhotoIdName = person.findViewById(R.id.PhotoIdName2);
         TextView yearofbirth = person.findViewById(R.id.yearofbirth2);
         Button btn = person.findViewById(R.id.Delete);
+        Button Schedule = person.findViewById(R.id.scheduleApp);
         IDProofDetailsdb idProofDetailsdb = (IDProofDetailsdb) this.getItem(position);
         name.setText(idProofDetailsdb.getID_name());
         gender.setText(idProofDetailsdb.getGender());
@@ -53,6 +55,16 @@ public class MixActivity extends BaseAdapter {
         PhotoIdName.setText(idProofDetailsdb.getID_type());
         yearofbirth.setText(String.valueOf(idProofDetailsdb.getYear()));
         btn.setTag(position);
+        Schedule.setTag(position);
+        Schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x = (int)Schedule.getTag();
+                Intent in = new Intent(parent.getContext(),SearchByPin.class);
+                in.putExtra("user",String.valueOf(x));
+                parent.getContext().startActivity(in);
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

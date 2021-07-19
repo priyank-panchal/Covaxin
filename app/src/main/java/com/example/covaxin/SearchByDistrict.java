@@ -87,15 +87,14 @@ public class SearchByDistrict extends AppCompatActivity implements AdapterView.O
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String last = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+IdofDistricte.toString()+"&date=31-03-2021";
-                Log.d("meldi",last.toString());
+                String last = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+IdofDistricte.toString()+"&date=19-07-2021";
+
                 JsonObjectRequest SearchByDis = new JsonObjectRequest(Request.Method.GET,
                         last,
                         null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                Toast.makeText(SearchByDistrict.this, response.toString(), Toast.LENGTH_SHORT).show();
                                 vaccineSlots = new ArrayList<>();
                                 vaccineSlotsDistricte VS = new vaccineSlotsDistricte();
                                 try {

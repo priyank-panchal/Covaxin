@@ -98,13 +98,13 @@ public class IDProofDetails extends AppCompatActivity  {
             isValid =false;
         }
         String idproofnumber=id_number.getText().toString();
-        System.err.println(idproofnumber);
+
         if(idproofname.isEmpty()){
             id_number.setError("this filed is required");
             isValid = false;
         }
         String idproofyear = id_year.getText().toString().trim();
-        System.err.println(idproofname);
+
         if(idproofname.isEmpty()){
             id_year.setError("this filed is required");
             isValid = false;
