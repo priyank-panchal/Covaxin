@@ -5,221 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShowDetailsUser">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         >
         <TextView
             android:id="@+id/idProof"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Register of Login for Vaccination"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
             android:textAlignment="center"
             android:textSize="20dp"/>
-        <TableLayout
-
+        <ListView
+            android:id="@+id/ltviw"
             android:layout_width="match_parent"
-            android:layout_margin="20dp"
-            android:layout_height="wrap_content"
-            android:shrinkColumns="8"
-            >
-            <TableRow
-                android:id="@+id/firstRow"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" >
-                <TextView
-                    android:id="@+id/Nameofuser1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Priyank Panchal"
-                    android:layout_marginRight="80dp"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"  />
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/Delete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#009688"
-                    android:text="Delete" />
-            </TableRow>
-            <TableRow
-                android:id="@+id/second"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:id="@+id/GenderName1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gender"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/GenderName2"
-                    android:text="Male"
-                    >
-                </TextView>
-            </TableRow>
-            <TableRow
-                android:id="@+id/ThiredRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:id="@+id/PhotoIdNumber1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Photo Id Number"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/PhotoIdNumber2"
-                    android:text="XXXXXX433"
+            android:layout_height="wrap_content" />
 
-                    />
-            </TableRow>
-            <TableRow
-                android:id="@+id/fourRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:id="@+id/PhotoIdName1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Photo ID Proof"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/PhotoIdName2"
-                    android:text="Addhar card"
-                    />
-            </TableRow>
-            <TableRow
-                android:id="@+id/fiveRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:id="@+id/yearOfbirth1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Year of birth"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/yearofbirth2"
-                    android:text="2000"
-                    />
-            </TableRow>
-            <TableRow
-                android:id="@+id/sixRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:id="@+id/referenceId1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Reference id"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/referenceId2"
-                    android:text="2000"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/sevenRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:id="@+id/doseview1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Does 1 Status"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/doesview2"
-                    android:text="not scheduled"
-                    />
-            </TableRow>
-            <TableRow
-                android:id="@+id/eightRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                >
-                <TextView
-                    android:id="@+id/dose2view1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Does 2 Status"
-                    android:textSize="20dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
-                    android:id="@+id/does2view2"
-                    android:text="Not scheduled"
-                    />
-            </TableRow>
-            <TableRow
-                android:id="@+id/nineRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" >
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/scheduleApp"
-                    android:layout_weight="1"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#009688"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginRight="35dp"
-                    android:text="Schedule Apointment" />
-            </TableRow>
-        </TableLayout>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ADD_More"
             android:layout_width="match_parent"
